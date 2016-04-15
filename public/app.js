@@ -24,4 +24,9 @@ function todo($http) {
   todos.then(function(todo) {
     vm.list = todo.data
   })
+
+  vm.finished = function(item) {
+    var position = vm.list.indexOf(item);
+    vm.list.splice(position, 1);
+  }
 }

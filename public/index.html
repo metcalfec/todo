@@ -10,16 +10,15 @@
     <div class="row">
       <div class="col-sm-12">
         <div ng-controller="homeController as home">
-          {{home.message}} {{home.user.name}}.
+          <h2>{{home.message}} {{home.user.name}}.</h2>
         </div>
         <div ng-controller="todoController as todo">
-          Number of exercises: <span ng-show="todo.list.length">{{todo.list.length}}
+          <span ng-show="todo.list.length !== 0"> Exercises Left: {{todo.list.length}}</span>
+          <span ng-show="todo.list.length === 0"> All Exercises are complete.</span>
           <ol class="list-unstyled">
             <li ng-repeat="item in todo.list">
-              <input ng-click="finished = !finished" type="checkbox">
-              <span ng-class="{'hidden': finished}">
+              <input ng-click="todo.finished(item)" type="checkbox">
                 {{item}}
-              </span>
             </li>
           </ol>
         </div>
