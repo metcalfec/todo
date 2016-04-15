@@ -43,7 +43,16 @@ function todo($http) {
     todo.task = content;
     var added = $http.post('http://localhost:1337/todos/', todo);
     added.then(function() {
-      getTodos()
+      getTodos();
+    })
+  }
+
+  vm.remove = function(content) {
+    var todo = {};
+    todo.task = content;
+    var removed = $http.delete('http://localhost:1337/todos/');
+    removed.then(function() {
+      getTodos();
     })
   }
 }
