@@ -1,5 +1,12 @@
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
+var jsonParser = bodyParser.json();
+var mongo = require('mongodb');
+var myClient = mongo.MongoClient;
+var url = 'mongodb://localhost/test'
+
+app.use(jsonParser);
 
 app.use(express.static('./public'));
 
@@ -18,6 +25,36 @@ app.get('/todos/:user', function(req, res) {
   } else {
     res.sendStatus(404);
   }
+});
+
+app.get('/todos', function(req, res) {
+  myClient.connect(url, function(error, db) {
+    if (!error) {
+      var todo = db.collection('todo');
+      todo.find({}).toArray(function(error, results) {
+        res.json(results);
+        db.close();
+      });
+    } else {
+      res.sendStatus(500);
+      console.log('Could not connect to the database: ' + error);
+    }
+  });
+});
+
+app.post('/todos', function(req, res) {
+  myClient.connect(url, function(error, db) {
+    if (!error) {
+      var todo = db.collection('todo');
+      todo.insert({task: req.body.task}, function(error, results) {
+        res.send(results.result);
+        db.close();
+      });
+    } else {
+      res.sendStatus(500);
+      console.log('Could not connect to the database: ' + error);
+    }
+  });
 });
 
 app.listen(1337);

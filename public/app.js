@@ -20,13 +20,30 @@ app.$inject = ['$http'];
 
 function todo($http) {
   vm = this;
-  var todos = $http.get('http://localhost:1337/todos/Chris');
-  todos.then(function(todo) {
-    vm.list = todo.data
-  })
+  activate();
+
+  function activate() {
+    getTodos();
+  }
+
+  function getTodos() {
+    var todos = $http.get('http://localhost:1337/todos/');
+    todos.then(function(todo) {
+      vm.list = todo.data
+    })
+  }
 
   vm.finished = function(item) {
     var position = vm.list.indexOf(item);
     vm.list.splice(position, 1);
+  }
+
+  vm.add = function(content) {
+    var todo = {};
+    todo.task = content;
+    var added = $http.post('http://localhost:1337/todos/', todo);
+    added.then(function() {
+      getTodos()
+    })
   }
 }
