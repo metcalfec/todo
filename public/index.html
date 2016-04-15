@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body ng-app="todo">
-    <div ng-controller="homeController as home">
-      {{home.message}} {{home.user.name}}.
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <title></title>
+</head>
+<body ng-app="todo">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div ng-controller="homeController as home">
+          <h2>{{home.message}} {{home.user.name}}.</h2>
+        </div>
+        <div ng-controller="todoController as todo">
+          <span ng-show="todo.list.length !== 0"> Exercises Left: {{todo.list.length}}</span>
+          <span ng-show="todo.list.length === 0"> All Exercises are complete.</span>
+          <ol class="list-unstyled">
+            <li ng-repeat="item in todo.list">
+              <input ng-click="todo.finished(item)" type="checkbox">
+                {{item}}
+            </li>
+          </ol>
+        </div>
+      </div>
     </div>
-    <div ng-controller="todoController as todo">
-      <ul>
-        <li ng-repeat="item in todo.list">
-          {{item}}
-        </li>
-      </ul>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-    <script src="app.js"></script>
-  </body>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
 </html>

@@ -6,7 +6,7 @@ app.$inject = ['$http'];
 
 function home($http) {
   var vm = this;
-  vm.message = "Welcome home"
+  vm.message = "Todays agenda for"
 
   var user = $http.get('http://localhost:1337/user');
   user.then(function(info) {
@@ -24,4 +24,9 @@ function todo($http) {
   todos.then(function(todo) {
     vm.list = todo.data
   })
+
+  vm.finished = function(item) {
+    var position = vm.list.indexOf(item);
+    vm.list.splice(position, 1);
+  }
 }
