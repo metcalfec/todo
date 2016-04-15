@@ -13,11 +13,11 @@
           {{home.message}} {{home.user.name}}.
         </div>
         <div ng-controller="todoController as todo">
-          Items: <span ng-show="todo.list.length">{{todo.list.length}}
+          Number of exercises: <span ng-show="todo.list.length">{{todo.list.length}}
           <ol class="list-unstyled">
             <li ng-repeat="item in todo.list">
               <input ng-click="finished = !finished" type="checkbox">
-              <span ng-class="{'text-muted': finished}">
+              <span ng-class="{'hidden': finished}">
                 {{item}}
               </span>
             </li>
@@ -28,6 +28,7 @@
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
   <script src="app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 </html>
