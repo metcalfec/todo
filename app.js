@@ -47,6 +47,7 @@ app.post('/todos', function(req, res) {
     if (!error) {
       var todo = db.collection('todo');
       todo.insert({task: req.body.task}, function(error, results) {
+        console.log(req.body)
         res.send(results.result);
         db.close();
       });
@@ -57,12 +58,15 @@ app.post('/todos', function(req, res) {
   });
 });
 
-app.delete('/todos', function(req, res) {
+app.delete('/todos/:task', function(req, res) {
   myClient.connect(url, function(error, db) {
     if (!error) {
+      var theTask = {
+        task: req.params.task
+      };
+      console.log(req.params)
       var todo = db.collection('todo');
-      todo.remove(
-        {task: req.body.task}, function(error, results) {
+      todo.remove(theTask, function(error, results) {
           res.send(results.result);
           db.close();
       });
