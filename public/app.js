@@ -41,6 +41,7 @@ function todo($http) {
   vm.add = function(content) {
     var todo = {};
     todo.task = content;
+    console.log(content)
     var added = $http.post('http://localhost:1337/todos/', todo);
     added.then(function() {
       getTodos();
@@ -50,7 +51,9 @@ function todo($http) {
   vm.remove = function(content) {
     var todo = {};
     todo.task = content;
-    var removed = $http.delete('http://localhost:1337/todos/');
+    console.log(content);
+    var removed = $http.delete('http://localhost:1337/todos/' + content, todo);
+    // console.log(removed)
     removed.then(function() {
       getTodos();
     })
