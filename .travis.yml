@@ -1,4 +1,4 @@
-language: NodeJS
+language: node_js
 services: mongodb
 install:
   - npm install
