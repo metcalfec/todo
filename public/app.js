@@ -14,6 +14,12 @@ function home($http) {
   })
 }
 
+app.directive('greeting', greeting);
+
+function greeting() {
+  return { templateUrl: 'home/greeting.directive.html' }
+}
+
 app.controller('todoController', todo);
 
 app.$inject = ['$http'];
@@ -30,6 +36,7 @@ function todo($http) {
     var todos = $http.get('http://localhost:1337/todos/');
     todos.then(function(todo) {
       vm.list = todo.data
+      console.log(vm)
     })
   }
 

@@ -1,8 +1,0 @@
-language: NodeJS
-services: mongodb
-install:
-  - npm install
-before_script:
-  - npm install -g gulp
-  - npm install -g mocha
-script: gulp test

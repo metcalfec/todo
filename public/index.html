@@ -3,29 +3,38 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="default.css">
   <title></title>
 </head>
 <body ng-app="todo">
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-12">
         <div ng-controller="homeController as home">
-          <h2>{{home.message}} {{home.user.name}}.</h2>
+          <greeting></greeting>
         </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 main-todo">
         <div ng-controller="todoController as todo">
-          <div>
-            <input ng-model="todo.item" class="form-control" type="text">
-          </div>
-          <div class="btn-group">
-            <button ng-click="todo.add(todo.item)" class="btn btn-default" type="button">Add a todo</button>
-            <button ng-click="todo.remove(todo.item)" class="btn btn-default" type="button">Delete a todo</button>
+          <div class="input-group search-bar">
+            <input ng-model="todo.item" class="form-control" type="text" placeholder="Enter a new todo">
+            <span class="input-group-btn">
+              <button ng-click="todo.add(todo.item)" class="btn btn-info" type="button">Add a todo</button>
+              <button ng-click="todo.remove(todo.item)" class="btn btn-danger" type="button">Delete a todo</button>
+            </span>
           </div>
           <hr>
-          <div ng-show="todo.list.length !== 0">
-            Exercises Left: {{todo.list.length}}
-          </div>
-          <div ng-show="todo.list.length === 0">
-            All Exercises are complete.
+          <div class="tasks">
+            <div ng-show="todo.list.length !== 0">
+              You have <p class="task-number">{{todo.list.length}}</p> tasks left.
+            </div>
+            <div ng-show="todo.list.length === 0">
+              All tasks are complete.
+            </div>
           </div>
           <ol class="list-unstyled well">
             <li ng-repeat="item in todo.list">
