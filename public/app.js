@@ -52,8 +52,7 @@ function todo($http) {
     var todo = {};
     todo.task = content;
     console.log(content);
-    console.log(todo);
-    var removed = $http.delete('http://localhost:1337/todos/:task/', todo);
+    var removed = $http.delete('http://localhost:1337/todos/' + content, todo);
     // console.log(removed)
     removed.then(function() {
       getTodos();

@@ -77,4 +77,8 @@ app.delete('/todos/:task', function(req, res) {
   });
 });
 
-app.listen(1337);
+if(!require.main.loaded) {
+  var server = app.listen(1337);
+}
+
+module.exports = app;
