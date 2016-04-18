@@ -8,20 +8,26 @@
 <body ng-app="todo">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-md-4">
         <div ng-controller="homeController as home">
           <h2>{{home.message}} {{home.user.name}}.</h2>
         </div>
         <div ng-controller="todoController as todo">
-          <p>
+          <div>
             <input ng-model="todo.item" class="form-control" type="text">
-          </p>
-          <p>
-            <button ng-click="todo.add(todo.item)" class="btn btn-warning" type="button">Add a todo</button>
-          </p>
-          <span ng-show="todo.list.length !== 0"> Exercises Left: {{todo.list.length}}</span>
-          <span ng-show="todo.list.length === 0"> All Exercises are complete.</span>
-          <ol class="list-unstyled">
+          </div>
+          <div class="btn-group">
+            <button ng-click="todo.add(todo.item)" class="btn btn-default" type="button">Add a todo</button>
+            <button ng-click="todo.remove(todo.item)" class="btn btn-default" type="button">Delete a todo</button>
+          </div>
+          <hr>
+          <div ng-show="todo.list.length !== 0">
+            Exercises Left: {{todo.list.length}}
+          </div>
+          <div ng-show="todo.list.length === 0">
+            All Exercises are complete.
+          </div>
+          <ol class="list-unstyled well">
             <li ng-repeat="item in todo.list">
               <input ng-click="todo.finished(item)" type="checkbox">
               {{item.task}}
