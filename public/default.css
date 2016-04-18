@@ -1,0 +1,24 @@
+.main-todo {
+  background-color: lightgrey;
+  margin-top: 100px;
+  border-radius: 20px;
+}
+
+.search-bar {
+  margin-top: 30px;
+}
+
+.task-number {
+  font-size: 18px;
+  color: white;
+  display: inline;
+}
+
+.user {
+  display: inline;
+  font-size: 20px;
+}
+
+.nav-user {
+  margin-top: 20px;
+}
