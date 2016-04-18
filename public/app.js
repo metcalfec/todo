@@ -14,12 +14,6 @@ function home($http) {
   })
 }
 
-app.directive('greeting', greeting);
-
-function greeting() {
-  return { templateUrl: 'home/greeting.directive.html' }
-}
-
 app.controller('todoController', todo);
 
 app.$inject = ['$http'];
