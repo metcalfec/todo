@@ -21,27 +21,17 @@
       <div class="col-md-6 col-md-offset-3 main-todo">
         <div ng-controller="todoController as todo">
           <div class="input-group search-bar">
-            <input ng-model="todo.item" class="form-control" type="text" placeholder="Enter a new todo">
+            <create></create>
             <span class="input-group-btn">
-              <button ng-click="todo.add(todo.item)" class="btn btn-info" type="button">Add a todo</button>
-              <button ng-click="todo.remove(todo.item)" class="btn btn-danger" type="button">Delete a todo</button>
+              <add></add>
+              <remove></remove>
             </span>
           </div>
           <hr>
           <div class="tasks">
-            <div ng-show="todo.list.length !== 0">
-              You have <p class="task-number">{{todo.list.length}}</p> tasks left.
-            </div>
-            <div ng-show="todo.list.length === 0">
-              All tasks are complete.
-            </div>
+            <count></count>
           </div>
-          <ol class="list-unstyled well">
-            <li ng-repeat="item in todo.list">
-              <input ng-click="todo.finished(item)" type="checkbox">
-              {{item.task}}
-            </li>
-          </ol>
+          <list></list>
         </div>
       </div>
     </div>
@@ -51,5 +41,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="app.js"></script>
   <script src="home/greeting.directive.js"></script>
+  <script src="todo/add.directive.js"></script>
+  <script src="todo/remove.directive.js"></script>
+  <script src="todo/count.directive.js"></script>
+  <script src="todo/list.directive.js"></script>
+  <script src="todo/create.directive.js"></script>
+  <script src="todo/todo.controller.js"></script>
+  <script src="todo/home.controller.js"></script>
 </body>
 </html>

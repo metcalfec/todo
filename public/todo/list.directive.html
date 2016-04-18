@@ -1,0 +1,6 @@
+<ol class="list-unstyled well">
+  <li ng-repeat="item in todo.list">
+    <input ng-click="todo.finished(item)" type="checkbox">
+    {{item.task}}
+  </li>
+</ol>
