@@ -1,6 +1,6 @@
 <ol class="list-unstyled well">
   <li ng-repeat="item in todo.list">
     <input ng-click="todo.finished(item)" type="checkbox">
-    {{item.task}}
+    {{item.task}} <p class="due-date">{{item.date | date:'short'}}</p>
   </li>
 </ol>

@@ -40,3 +40,21 @@ h1 {
   text-align: center;
   font-size: 80px;
 }
+
+.due-date {
+  display: inline;
+  float: right;
+  clear: right;
+  margin: 0;
+}
+
+.due-date-title {
+  color: red;
+  margin-top: 5px;
+}
+
+.add-del-button {
+  font-size: 30px;
+  height: 60px;
+  border-radius: 50px;
+}

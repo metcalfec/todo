@@ -46,7 +46,12 @@ app.post('/todos', function(req, res) {
   myClient.connect(url, function(error, db) {
     if (!error) {
       var todo = db.collection('todo');
-      todo.insert({task: req.body.task}, function(error, results) {
+      todo.insert(
+        {
+          task: req.body.task,
+          date: req.body.date
+        },
+        function(error, results) {
         console.log(req.body)
         res.send(results.result);
         db.close();
