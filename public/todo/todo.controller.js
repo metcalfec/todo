@@ -25,10 +25,11 @@ function todo($http) {
     vm.list.splice(position, 1);
   }
 
-  vm.add = function(content) {
+  vm.add = function(theTask, theDate) {
     var todo = {};
-    todo.task = content;
-    console.log(todo.date);
+    todo.task = theTask;
+    todo.date = theDate;
+    console.log(todo);
     if (todo.task !== undefined) {
       var added = $http.post('http://localhost:1337/todos/', todo);
       added.then(function() {
