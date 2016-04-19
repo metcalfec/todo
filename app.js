@@ -17,6 +17,7 @@ app.get('/user', function(req, res) {
   }
   res.json(user)
 });
+
 app.get('/todos/:user', function(req, res) {
   if (req.params.user === 'Chris') {
     var todos = ['Learn JavaScript.', 'Learn NodeJS.', 'Learn AngularJS.'];

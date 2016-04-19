@@ -18,27 +18,19 @@
     </div>
     <hr>
     <div class="row">
-      <div class="col-md-6 col-md-offset-3 main-todo">
-        <div ng-controller="todoController as todo">
-          <div class="input-group search-bar">
-            <create></create>
-            <span class="input-group-btn">
-              <add></add>
-              <remove></remove>
-            </span>
-          </div>
-          <hr>
-          <div class="tasks">
-            <count></count>
-          </div>
-          <list></list>
+      <div ng-show="!go">
+        <div>
+           <h1>Create a todo list.</h1>
+          <a ng-click="go = !go" href="#/todo"><img class="img-circle circled" src="http://www.homeadvisorhomesource.com/wp-content/uploads/2015/10/to-do-list.jpg"></a>
         </div>
       </div>
+      <div ng-view></div>
     </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.4/angular-route.min.js"></script>
   <script src="app.js"></script>
   <script src="home/greeting.directive.js"></script>
   <script src="todo/add.directive.js"></script>
