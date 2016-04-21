@@ -1,7 +1,7 @@
 .main-todo {
-  background-color: lightgrey;
-  margin-top: 100px;
-  border-radius: 20px;
+  background-color: #fbfbfb;
+  margin-top: 50px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 
 .search-bar {
@@ -10,7 +10,7 @@
 
 .task-number {
   font-size: 18px;
-  color: white;
+  color: #75776a;
   display: inline;
 }
 
@@ -54,7 +54,24 @@ h1 {
 }
 
 .add-del-button {
+  width: 103px;;
+}
+
+.finished-column {
+  width: 3px;
+}
+
+.test {
+  width: 400px;
+}
+
+.task-count {
+  padding-top: 120px;
+  text-align: center;
+}
+
+#goTodo {
+  width: 180px;
   font-size: 30px;
-  height: 60px;
-  border-radius: 50px;
+  margin-top: 100px;
 }

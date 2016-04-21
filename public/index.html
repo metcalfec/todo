@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="default.css">
   <title></title>
 </head>
-<body ng-app="todo">
+<body ng-app="todo" ng-init="goTodo = true">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -18,10 +18,10 @@
     </div>
     <hr>
     <div class="row">
-      <div ng-show="!go">
-        <div>
-           <h1>Create a todo list.</h1>
-          <a ng-click="go = !go" href="#/todo"><img class="img-circle circled" src="http://www.homeadvisorhomesource.com/wp-content/uploads/2015/10/to-do-list.jpg"></a>
+      <div ng-show="goTodo">
+        <h1>Create a todo list.</h1>
+        <div class="col-md-2 col-md-offset-5">
+          <a id="goTodo" class="btn btn-primary btn-lg" href="#/todo" ng-click="goTodo = !goTodo">Start!</a>
         </div>
       </div>
       <div ng-view></div>
@@ -32,7 +32,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.4/angular-route.min.js"></script>
   <script src="app.js"></script>
+  <script src="home/user.services.js"></script>
   <script src="home/greeting.directive.js"></script>
+  <script src="todo/date.directive.js"></script>
   <script src="todo/add.directive.js"></script>
   <script src="todo/remove.directive.js"></script>
   <script src="todo/count.directive.js"></script>
