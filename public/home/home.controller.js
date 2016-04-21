@@ -2,14 +2,14 @@ var app = angular.module('todo');
 
 app.controller('homeController', home);
 
-app.$inject = ['$http'];
+app.$inject = [userService];
 
-function home($http) {
+function home(userService) {
   var vm = this;
   vm.message = "Todays agenda for"
 
-  var user = $http.get('http://localhost:1337/user');
+  var user = userService.getUser();
   user.then(function(info) {
-    vm.user = info.data;
+    vm.user = info.data.name;
   })
 }

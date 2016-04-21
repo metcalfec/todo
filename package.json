@@ -24,6 +24,7 @@
     "gulp-mocha": "^2.2.0",
     "gulp-nodemon": "^2.0.6",
     "mongodb": "^2.1.16",
-    "request": "^2.72.0"
+    "request": "^2.72.0",
+    "webpage": "^0.3.0"
   }
 }

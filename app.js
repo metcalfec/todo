@@ -19,12 +19,18 @@ app.get('/user', function(req, res) {
 });
 
 app.get('/todos/:user', function(req, res) {
-  if (req.params.user === 'Chris') {
-    var todos = ['Learn JavaScript.', 'Learn NodeJS.', 'Learn AngularJS.'];
-    res.send(todos);
-  } else {
-    res.sendStatus(404);
-  }
+  myClient.connect(url, function(error, db) {
+    if (!error) {
+      var todo = db.collection('todo');
+      todo.find({user: req.params.user}).toArray(function(error, results) {
+        res.json(results);
+        db.close();
+      });
+    } else {
+      res.sendStatus(500);
+      console.log('Could not connect to the database: ' + error);
+    }
+  });
 });
 
 app.get('/todos', function(req, res) {
@@ -48,6 +54,7 @@ app.post('/todos', function(req, res) {
       var todo = db.collection('todo');
       todo.insert(
         {
+          user: req.body.user,
           task: req.body.task,
           date: req.body.date
         },

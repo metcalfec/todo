@@ -1,16 +1,20 @@
 <div class="col-md-6 col-md-offset-3 main-todo">
   <div ng-controller="todoController as todo">
-    <div class="input-group search-bar">
-      <create></create>
-      <span class="input-group-btn">
+    <form>
+      <div class="form-group col-md-9">
+        <label>Task</label>
+        <create></create>
+      </div>
+      <div class="form-group col-md-3">
+        <label>Due Date</label>
+        <date></date>
+      </div>
+      <div class="form-group col-md-4">
         <add></add>
         <remove></remove>
-      </span>
-    </div>
-    <hr>
-    <div class="tasks">
-      <count></count>
-    </div>
+      </div>
+    </form>
+    <count></count>
     <list></list>
   </div>
 </div>
