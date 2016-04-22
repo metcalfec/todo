@@ -14,6 +14,6 @@ gulp.task('casper', function() {
   return gulp.src('public/todotest.js').pipe(casper());
 });
 
-gulp.task('default', ['test', 'casper'] function() {
+gulp.task('default', ['test', 'casper'], function() {
   server.close()
 });
