@@ -7,4 +7,5 @@ before_script:
   - npm install -g mocha
   - npm install -g casperjs
 script:
-  - gulp default
+  -gulp test
+  -gulp test-casper
