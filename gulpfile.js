@@ -5,13 +5,13 @@ var casper = require('gulp-casperjs');
 
 gulp.task('default', function() {
   nodemon({ script: 'app.js' })
-  .on('start', ['test', 'test-casper']);
+  .on('start', ['test', 'casper']);
 });
 
 gulp.task('test', function() {
   return gulp.src('app.spec.js').pipe(mocha());
 });
 
-gulp.task('test-casper', function() {
+gulp.task('casper', function() {
   return gulp.src('public/todotest.js').pipe(casper());
 });
