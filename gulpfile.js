@@ -15,8 +15,3 @@ gulp.task('test', function() {
 gulp.task('test-casper', function() {
   return gulp.src('public/todotest.js').pipe(casper());
 });
-
-gulp.task('development', function() {
-  nodemon({ script: 'app.js' })
-  .on('start', ['test']);
-});
