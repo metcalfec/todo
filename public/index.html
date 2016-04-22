@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="default.css">
-  <title></title>
+  <title>A is for Angular</title>
 </head>
 <body ng-app="todo" ng-init="goTodo = true">
   <div class="container">
@@ -19,7 +19,7 @@
     <hr>
     <div class="row">
       <div ng-show="goTodo">
-        <h1>Create a todo list.</h1>
+        <h1 id="title">Create a todo list.</h1>
         <div class="col-md-2 col-md-offset-5">
           <a id="goTodo" class="btn btn-primary btn-lg" href="#/todo" ng-click="goTodo = !goTodo">Start!</a>
         </div>

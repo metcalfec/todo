@@ -1,5 +1,8 @@
-<div ng-show="todo.list.length !== 0">
+<div ng-show="todo.list.length > 1">
   <h3 class="task-count">You have <span class="task-number">{{todo.list.length}}</span> tasks left.</h3>
+</div>
+<div ng-show="todo.list.length === 1">
+  <h3 class="task-count">You have <span class="task-number">{{todo.list.length}}</span> task left.</h3>
 </div>
 <div ng-show="todo.list.length === 0">
   <h3 class="task-count">All tasks are complete.</h3>
